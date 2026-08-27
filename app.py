@@ -1,10 +1,10 @@
 import os
 import sys
 
-# 1. Bulletproof Auto-Installer: Forces Streamlit Cloud to install missing libraries on boot
-os.system(f"{sys.executable} -m pip install pandas numpy scikit-learn plotly")
+# 1. THE BULLETPROOF INSTALLER: This forces Streamlit to download Plotly and Scikit-Learn
+os.system(f"{sys.executable} -m pip install plotly scikit-learn pandas numpy")
 
-# 2. Standard Imports
+# 2. Standard Imports (Now safely placed below the installer)
 import streamlit as st
 import pandas as pd
 import numpy as np
