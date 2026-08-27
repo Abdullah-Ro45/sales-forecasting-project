@@ -1,10 +1,23 @@
+import subprocess
+import sys
+
+# Force-install missing libraries directly
+try:
+    import plotly.express as px
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "plotly", "scikit-learn", "pandas", "numpy"])
+    import plotly.express as px
+
 import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
-from datetime import date
-import plotly.express as px
 import plotly.graph_objects as go
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+import math
+
+# --- The rest of your app.py code stays exactly the same from here down ---
+st.set_page_config(page_title="Market AI Predictor", page_icon="📈", layout="wide", initial_sidebar_state="expanded")
 
 # Set page configuration to wide mode
 st.set_page_config(page_title="Sales Forecast Pro", page_icon="🚀", layout="wide", initial_sidebar_state="expanded")
